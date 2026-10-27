@@ -37,18 +37,23 @@ namespace MidtermExam.Prob01
             int amount = 0;
             string alphabets_check;
             Queue<string> newQueue = new Queue<string>();
-  
-            for (int i = 0; alphabets.Count < 0; i++)
+
+            for (int i = 0; i < alphabets.Count; i++)
             {
                 alphabets_check = alphabets.Dequeue();
                 newQueue.Enqueue(alphabets_check);
-                for (int j = 0; vowels.Length < 0; j++)
+                for (int j = 0; j < vowels.Length; j++)
                 {
                     if (alphabets_check == vowels[j])
                     {
                         amount++;
                     }
                 }
+            }
+
+            for (int i = 0; i < newQueue.Count; i++)
+            {
+                alphabets.Enqueue(newQueue.Dequeue());
             }
 
             return amount;
